@@ -1,14 +1,14 @@
-<p>
+<p class="my-3">
   <strong>Name:</strong>
   <%= @restaurant.name %>
 </p>
 
-<p>
+<p class="my-3">
   <strong>Address:</strong>
   <%= @restaurant.address %>
 </p>
 
-<p>
+<p class="my-3">
   <strong>Category:</strong>
   <%= @restaurant.category %>
 </p>
@@ -16,9 +16,10 @@
 <%= simple_form_for [@restaurant, @review] do |f| %>
   <%= f.input :rating %>
   <%= f.input :content %>
-  <%= f.submit 'Create Review', class: "btn btn-primary" %>
+  <%= f.submit 'Create Review', class: "btn btn-dark my-3" %>
 <% end %>
 
+<h4>Reviews</h4>
 <% @restaurant.reviews.each do |review| %>
   <p><i><%= review.content %></i> (<%= review.rating %> stars)
 <% end %>
