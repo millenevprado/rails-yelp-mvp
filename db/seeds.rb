@@ -10,7 +10,7 @@ Restaurant.destroy_all
 
 puts 'Creating restaurants...'
 
-hashi_oriental = { name: 'Hashi Oriental', address: 'Av. Jamel', phone_number: '62 9999-9999', category: 'japonese' }
+hashi_oriental = { name: 'Hashi Oriental', address: 'Av. Jamel', phone_number: '62 9999-9999', category: 'japanese' }
 paris_rest = { name: 'Paris Restaurant', address: 'Paulista', phone_number: '11 9999-9999', category: 'french' }
 spoleto = { name: 'Spoleto', address: 'Av. Flamboyant', phone_number: '62 9999-8888', category: 'italian' }
 china_in_box = { name: 'China In Box', address: 'Rua C-222', phone_number: '62 9999-7777', category: 'chinese' }
