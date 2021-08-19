@@ -1,28 +1,45 @@
-<p class="my-3">
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
+<h1 class="my-3"><%= @restaurant.name %></h1>
+<table class="table table-bordered">
+  <tbody>
+      <tr>
+        <th scope="row">Address</th>
+        <td><%= @restaurant.address %></td>
+      </tr>
+      <tr>
+        <th scope="row">Phone Number</th>
+        <td><%= @restaurant.phone_number %></td>
+      </tr>
+      <tr>
+        <th scope="row">Category</th>
+        <td><%= @restaurant.category %></td>
+    </tr>
+  </tbody>
+</table>
 
-<p class="my-3">
-  <strong>Address:</strong>
-  <%= @restaurant.address %>
-</p>
-
-<p class="my-3">
-  <strong>Category:</strong>
-  <%= @restaurant.category %>
-</p>
+<div class="list-group mt-1 mb-2">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item">
+      <small>
+        <% count = 0 %>
+        <% 5.times do %>
+          <% if review.rating > count %>
+            <i class="fas fa-star"></i>
+          <% else %>
+            <i class="far fa-star"></i>
+          <% end %>
+          <% count += 1 %>
+        <% end %>
+      </small>
+      <p><%= review.content %></p>
+    </li>
+  <% end %>
+</div>
 
 <%= simple_form_for [@restaurant, @review] do |f| %>
-  <%= f.input :rating %>
-  <%= f.input :content %>
-  <%= f.submit 'Create Review', class: "btn btn-dark my-3" %>
-<% end %>
-
-<h4>Reviews</h4>
-<% @restaurant.reviews.each do |review| %>
-  <p><i><%= review.content %></i> (<%= review.rating %> stars)
-<% end %>
+  <%= f.input :rating, collection: 0..5 %>
+    <%= f.input :content%>
+    <%= f.submit class: 'btn btn-dark mt-3 mb-1' %>
+  <% end %>
 
 <hr>
-<%= link_to 'Back', root_path %>
+<%= link_to "See all restaurants", root_path %>

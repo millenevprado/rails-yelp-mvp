@@ -5,7 +5,7 @@
   <div class="form-group my-3">
     <%= f.input :name, class: 'form-control' %>
     <%= f.input :address, class: 'form-control' %>
-    <%= f.input :category, class: 'form-control' %>
+    <%= f.input :category, collection: Restaurant::CATEGORY, class: 'form-control' %>
     <%= f.input :phone_number, class: 'form-control' %>
   </div>
 
